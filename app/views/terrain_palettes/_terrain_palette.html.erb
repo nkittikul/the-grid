@@ -1,0 +1,9 @@
+<ul>
+  <h3> Terrains </h3>
+  <% terrains.each do |terrain| %>
+    <li>
+      <%= render partial: 'terrains/terrain', object: terrain, locals: {tile: tile} %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "New Terrain", new_grid_terrain_path(tile.grid) %>

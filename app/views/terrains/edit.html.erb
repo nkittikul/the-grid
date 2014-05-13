@@ -1,0 +1,22 @@
+<h1>Edit <%= @terrain.name %> </h1>
+<div>
+  <%= form_for [@grid, @terrain] do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Enter terrain name" %>
+    </div>
+    <div>
+      <%= f.label :movement_cost %>
+      <%= f.number_field :movement_cost, placeholder: "Enter movement cost" %>
+    </div>
+    <div>
+      <%= f.label :defense %>
+      <%= f.number_field :defense, placeholder: "Enter defense value" %>
+    </div>
+    <div>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>

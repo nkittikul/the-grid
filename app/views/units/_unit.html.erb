@@ -1,0 +1,2 @@
+<%= link_to unit.name, grid_tiles_path(tile.grid, x: tile.x, y: tile.y, tile: {unit_id: unit.id}), method: :put %>
+<%= link_to "Edit", edit_grid_unit_path(tile.grid, unit) %>

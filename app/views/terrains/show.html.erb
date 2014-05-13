@@ -1,0 +1,17 @@
+<h1><%= @terrain.name %></h1>
+<div>
+  <%= link_to "Edit Terrain", edit_terrain_path %>
+</div>
+</br>
+
+<div>
+  <%= image_tag(@terrain.image.small.url) if @terrain.image? %>
+</div>
+
+<div>
+  Defense Value: <%= @terrain.defense %>
+</div>
+
+<div>
+  Movement Cost: <%= @terrain.movement_cost %>
+</div>

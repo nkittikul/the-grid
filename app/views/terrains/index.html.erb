@@ -1,0 +1,8 @@
+<h1>Terrain</h1>
+<% @terrains.each do |terrain| %>
+  <div>
+    <%= link_to terrain.name, terrain %>
+  </div>
+<% end %>
+</br>
+<%= link_to 'Create new terrain type', new_terrain_path %>

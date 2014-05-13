@@ -1,0 +1,58 @@
+<h1>New Unit</h1>
+<div>
+  <%= form_for [@grid, @unit] do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Enter unit name" %>
+    </div>
+    <div>
+      <%= f.label :class %>
+      <%= f.text_field :class, placeholder: "Enter class name" %>
+    </div>
+    <div>
+      <%= f.label :level %>
+      <%= f.number_field :level, placeholder: "Enter level" %>
+    </div>
+     <div>
+      <%= f.label :max_hp %>
+      <%= f.number_field :max_hp, placeholder: "Enter HP" %>
+    </div>
+     <div>
+      <%= f.label :strength %>
+      <%= f.number_field :strength, placeholder: "Enter strength" %>
+    </div>
+     <div>
+      <%= f.label :magic %>
+      <%= f.number_field :magic, placeholder: "Enter magic" %>
+    </div>
+    <div>
+      <%= f.label :skill %>
+      <%= f.number_field :skill, placeholder: "Enter skill" %>
+    </div>
+     <div>
+      <%= f.label :speed %>
+      <%= f.number_field :speed, placeholder: "Enter speed" %>
+    </div>
+     <div>
+      <%= f.label :luck %>
+      <%= f.number_field :luck, placeholder: "Enter luck" %>
+    </div>
+    <div>
+      <%= f.label :defense %>
+      <%= f.number_field :defense, placeholder: "Enter defense" %>
+    </div>
+    <div>
+      <%= f.label :resistance %>
+      <%= f.number_field :resistance, placeholder: "Enter resistance" %>
+    </div>
+    <div>
+      <%= f.label :map_image %>
+      <%= f.file_field :map_image %>
+    </div>
+    <div>
+      <%= f.label :portrait_image %>
+      <%= f.file_field :portrati_image %>
+    </div>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>

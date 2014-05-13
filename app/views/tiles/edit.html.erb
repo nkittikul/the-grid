@@ -1,0 +1,4 @@
+<h1><%= @grid.name %></h1>
+<%= render @grid %>
+<%= render partial: 'terrain_palettes/terrain_palette', locals: { tile: @tile, terrains: @grid.terrains } %>
+<%= render partial: 'unit_palettes/unit_palette', locals: { tile: @tile, units: @grid.units } %>

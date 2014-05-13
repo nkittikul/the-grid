@@ -1,0 +1,25 @@
+<table class="grid">
+  <% grid.height.times do |y| %>
+    <tr>
+      <% grid.width.times do |x| %>
+        <td class="tile">
+          <%= render grid.tiles.find_by(x: x, y: y) %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+
+<!-- <div class="grid">
+  <% grid.height.times do |y| %>
+    <div class="row">
+      <% grid.width.times do |x| %>
+        <div class="tile">
+          <%= render grid.tiles.find_by(x: x, y: y) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+ -->
