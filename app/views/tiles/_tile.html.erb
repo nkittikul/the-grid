@@ -1,4 +1,4 @@
 <%= link_to edit_grid_tiles_path(tile.grid, x: tile.x, y: tile.y) do %>
   <%= image_tag(tile.terrain.image.small.url, class: 'terrain') %>
-  <%#= image_tag(tile.unit.map_image.small.url) if tile.unit %>
+  <%= image_tag(tile.unit.map_image.url, class: 'unit') if tile.unit %>
 <% end %>

@@ -21,12 +21,6 @@ ActiveRecord::Schema.define(version: 20140511211714) do
     t.datetime "updated_at"
   end
 
-  create_table "terrain_palettes", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "terrains", force: true do |t|
     t.string   "name"
     t.integer  "defense"
@@ -34,12 +28,12 @@ ActiveRecord::Schema.define(version: 20140511211714) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "terrain_palette_id"
     t.integer  "grid_id"
   end
 
   create_table "tiles", force: true do |t|
     t.integer  "grid_id"
+    t.integer  "unit_id"
     t.integer  "terrain_id"
     t.integer  "x"
     t.integer  "y"
@@ -48,10 +42,11 @@ ActiveRecord::Schema.define(version: 20140511211714) do
   end
 
   add_index "tiles", ["grid_id"], name: "index_tiles_on_grid_id"
+  add_index "tiles", ["unit_id"], name: "index_tiles_on_unit_id"
 
   create_table "units", force: true do |t|
     t.string   "name"
-    t.string   "class"
+    t.string   "unit_class"
     t.integer  "level"
     t.integer  "max_hp"
     t.integer  "current_hp"
@@ -64,6 +59,8 @@ ActiveRecord::Schema.define(version: 20140511211714) do
     t.integer  "defense"
     t.integer  "resistance"
     t.integer  "grid_id"
+    t.string   "map_image"
+    t.string   "portrait_image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

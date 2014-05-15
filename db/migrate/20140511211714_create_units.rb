@@ -2,7 +2,7 @@ class CreateUnits < ActiveRecord::Migration
   def change
     create_table :units do |t|
       t.string :name
-      t.string :class
+      t.string :unit_class
       t.integer :level
       t.integer :max_hp
       t.integer :current_hp
