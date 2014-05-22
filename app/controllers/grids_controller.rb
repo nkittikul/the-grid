@@ -16,8 +16,8 @@ class GridsController < ApplicationController
   end
 
   def create
-    @grid = Grid.new(grid_params)
-    @grid.save
+    @grid = Grid.first.dup
+    @grid.update_attributes(grid_params)
     redirect_to @grid
   end
 

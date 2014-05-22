@@ -6,6 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+src_grass = File.join(Rails.root, "public/seed/grass.jpeg")
+src_file_grass = File.new(src_grass)
+Terrain.create(name: "Grass", defense: 0, movement_cost: 1, image: src_file_grass)
+
+
 dummy_grid = Grid.create(name: "dummy", height: 1, width: 1)
 
 src_grass = File.join(Rails.root, "public/seed/grass.jpeg")
@@ -23,8 +28,4 @@ dummy_grid.terrains.create(name: "Forest", defense: 2, movement_cost: 2, image: 
 src_water = File.join(Rails.root, "public/seed/water.jpeg")
 src_file_water = File.new(src_water)
 dummy_grid.terrains.create(name: "Water", defense: 0, movement_cost: 999, image: src_file_water)
-
-
-
-
 

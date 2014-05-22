@@ -5,6 +5,8 @@ class CreateTerrains < ActiveRecord::Migration
       t.integer :defense
       t.integer :movement_cost
       t.string :image
+      t.belongs_to :terrainable, polymorphic: true
+
       t.timestamps
     end
   end

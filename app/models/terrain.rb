@@ -1,7 +1,12 @@
 class Terrain < ActiveRecord::Base
-  has_many :tiles
-  belongs_to :grid
+  belongs_to :terrainable, polymorphic: true
   mount_uploader :image, ImageUploader
-  validates :image, presence: true
+
+  def initialize_dup(prototype)
+    super
+    self[:image] = nil
+  end
 
 end
+
+

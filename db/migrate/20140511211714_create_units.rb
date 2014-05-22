@@ -15,6 +15,7 @@ class CreateUnits < ActiveRecord::Migration
       t.integer :defense
       t.integer :resistance
       t.integer :grid_id
+      t.integer :tile_id
       t.string :map_image
       t.string :portrait_image
 

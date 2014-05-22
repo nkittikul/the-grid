@@ -1,10 +1,14 @@
 TheGrid::Application.routes.draw do
   
   resources :grids do
-    resource :tiles, only: [:edit, :update]
+    resource :tiles, only: [:edit, :update] do
+      resource :unit, only: [:update], controller: 'tiles/unit'    
+      resource :terrain, only: [:update], controller: 'tiles/terrain'
+    end
     resources :terrains
     resources :units
   end
+
 
   root to: "welcome#index"
 

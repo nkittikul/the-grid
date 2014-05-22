@@ -34,9 +34,20 @@
  
 .tile {
   border: 1px gray dotted;
-  width: 50px;
-  height: 50px;
+  width:  70px;
+  height: 70px;
 }
+ 
+.terrain {
+  width:  100%;
+  height: 100%;
+}
+ 
+.unit {
+  width:  70%;
+  height: 70%;
+}
+ 
  
 /* Necessary for proper grid display without weird gaps and shit */
  
@@ -45,28 +56,33 @@
 }
  
 .tile {
-  padding: 0;
+  padding:  0;
+}
+ 
+.tile img {
+  margin:   auto;
+  display:  block;
+}
+ 
+ 
+/* Necessary to overlay unit on terrain */
+ 
+.tile {
   position: relative;
 }
  
 .tile img {
-  display: block;
   position: absolute;
+  top:      0;
+  bottom:   0;
+  left:     0;
+  right:    0;
 }
-
-.unit {
-  width: 80%;
-  height: 80%;
-  z-index: 1;
-  padding: auto;
-  left: 5px;
-  top: 5px;
-}
-
+ 
 .terrain {
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 0;
+  z-index:  0;
+}
+ 
+.unit {
+  z-index:  1;
 }

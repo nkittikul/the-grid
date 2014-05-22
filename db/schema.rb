@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511211714) do
+ActiveRecord::Schema.define(version: 20140516215237) do
 
   create_table "grids", force: true do |t|
     t.string   "name"
@@ -21,20 +21,32 @@ ActiveRecord::Schema.define(version: 20140511211714) do
     t.datetime "updated_at"
   end
 
+  create_table "items", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.string   "stat"
+    t.integer  "current_uses"
+    t.integer  "max_uses"
+    t.integer  "stat_increase"
+    t.integer  "unit_id"
+    t.integer  "grid_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "terrains", force: true do |t|
     t.string   "name"
     t.integer  "defense"
     t.integer  "movement_cost"
     t.string   "image"
+    t.integer  "terrainable_id"
+    t.string   "terrainable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "grid_id"
   end
 
   create_table "tiles", force: true do |t|
     t.integer  "grid_id"
-    t.integer  "unit_id"
-    t.integer  "terrain_id"
     t.integer  "x"
     t.integer  "y"
     t.datetime "created_at"
@@ -42,7 +54,6 @@ ActiveRecord::Schema.define(version: 20140511211714) do
   end
 
   add_index "tiles", ["grid_id"], name: "index_tiles_on_grid_id"
-  add_index "tiles", ["unit_id"], name: "index_tiles_on_unit_id"
 
   create_table "units", force: true do |t|
     t.string   "name"
@@ -59,8 +70,25 @@ ActiveRecord::Schema.define(version: 20140511211714) do
     t.integer  "defense"
     t.integer  "resistance"
     t.integer  "grid_id"
+    t.integer  "tile_id"
     t.string   "map_image"
     t.string   "portrait_image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weapons", force: true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.string   "type"
+    t.integer  "might"
+    t.integer  "weight"
+    t.integer  "hit_chance"
+    t.integer  "current_uses"
+    t.integer  "max_uses"
+    t.string   "rank"
+    t.integer  "unit_id"
+    t.integer  "grid_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

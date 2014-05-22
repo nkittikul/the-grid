@@ -1,2 +1,2 @@
-<%= link_to terrain.name, grid_tiles_path(tile.grid, x: tile.x, y: tile.y, tile: {terrain_id:terrain.id}), method: :put %>
+<%= link_to terrain.name, grid_tiles_terrain_path(tile.grid, x: tile.x, y: tile.y, terrain_id: terrain.id), method: :put %>
 <%= link_to "Edit", edit_grid_terrain_path(tile.grid, terrain) %>

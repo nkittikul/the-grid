@@ -1,9 +1,10 @@
 class Grid < ActiveRecord::Base
   after_save :find_or_create_tiles
-  after_create :initialize_terrain
   has_many :tiles
-  has_many :terrains
+  has_many :terrains, as: :terrainable
   has_many :units
+  has_many :items
+  has_many :weapons
 
   def find_or_create_tiles
     self.width.times do |x|
@@ -13,11 +14,26 @@ class Grid < ActiveRecord::Base
     end
   end
 
-  def initialize_terrain
-    Grid.first.terrains.each do |terrain|
-      new_terrain = terrain.clone
-      new_terrain.grid = self
-      new_terrain.save
+  def initialize_dup(prototype)
+    super
+    prototype.units.each do |unit|
+      unit.dup.update_attributes(grid: self)
+    end
+
+    prototype.items.each do |item|
+      item.dup.update_attributes(grid: self)
+    end
+
+    prototype.weapons.each do |weapon|
+      weapon.dup.update_attributes(grid: self)
+    end
+
+    prototype.terrains.each do |terrain|
+      terrain.dup.update_attributes(terrainable: self)
+    end
+
+    prototype.tiles.each do |tile|
+      tile.dup.update_attributes(grid: self)
     end
   end
 
