@@ -5,8 +5,14 @@ TheGrid::Application.routes.draw do
       resource :unit, only: [:update], controller: 'tiles/unit'    
       resource :terrain, only: [:update], controller: 'tiles/terrain'
     end
+    
     resources :terrains
-    resources :units
+    resources :units do
+      resource :weapon, only: [:create], controller: 'units/weapon'
+      resource :item, only: [:create], controller: 'units/item'
+    end
+    resources :weapons
+    resources :items
   end
 
 

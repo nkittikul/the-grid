@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.grid = @grid
+    @item.itemable = @grid
     @item.save
   end
 

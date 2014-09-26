@@ -2,3 +2,27 @@
 <%= render @grid %>
 <%= render partial: 'terrain_palettes/terrain_palette', locals: { tile: @tile, terrains: @grid.terrains } %>
 <%= render partial: 'unit_palettes/unit_palette', locals: { tile: @tile, units: @grid.units } %>
+<%= render partial: 'weapon_palettes/weapon_palette', locals: { tile: @tile, weapons: @grid.weapons } %>
+<%= render partial: 'item_palettes/item_palette', locals: { tile: @tile, items: @grid.items } %>
+
+<div>---------</div>
+
+<div>
+  <% if @tile.unit %>
+    <%= @tile.unit.name %>
+    <%= image_tag(@tile.unit.map_image.url) %>
+    <% @tile.unit.weapons.each do |weapon| %>
+      <%= weapon.name %>
+    <% end %>
+    <%= link_to "Edit tile unit", edit_grid_unit_path(@grid, @tile.unit) %>
+  <% end %>
+</div>
+</br>
+<div>
+  <% if @tile.terrain %>
+    <%= @tile.terrain.name %>
+    <%= image_tag(@tile.terrain.image.small.url) %>
+    <%= link_to "Edit tile terrain", edit_grid_terrain_path(@grid, @tile.terrain) %>
+  <% end %>
+</div>
+

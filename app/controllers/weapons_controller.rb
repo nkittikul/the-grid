@@ -11,8 +11,9 @@ class WeaponsController < ApplicationController
 
   def create
     @weapon = Weapon.new(weapon_params)
-    @weapon.grid = @grid
+    @weapon.weaponable = @grid
     @weapon.save
+    redirect_to @grid
   end
 
   def update

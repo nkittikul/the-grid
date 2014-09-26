@@ -21,7 +21,7 @@ class TerrainsController < ApplicationController
 
   def create
     @terrain = Terrain.new(terrain_params)
-    @terrain.grid = @grid
+    @terrain.terrainable = @grid
     @terrain.save
     redirect_to (session[:stored_action] || @grid)
   end

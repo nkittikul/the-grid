@@ -14,10 +14,11 @@ class CreateUnits < ActiveRecord::Migration
       t.integer :luck
       t.integer :defense
       t.integer :resistance
-      t.integer :grid_id
-      t.integer :tile_id
       t.string :map_image
       t.string :portrait_image
+      t.belongs_to :unitable, polymorphic: true
+      # t.integer :grid_id
+      # t.integer :tile_id
 
       t.timestamps
     end

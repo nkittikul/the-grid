@@ -13,7 +13,7 @@ class UnitsController < ApplicationController
 
   def create
     @unit = Unit.new(unit_params)
-    @unit.grid = @grid
+    @unit.unitable = @grid
     @unit.save
     redirect_to (session[:stored_action] || @grid)
   end

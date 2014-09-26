@@ -1,0 +1,9 @@
+<ul>
+  <h3> Items </h3>
+  <% items.each do |item| %>
+    <li>
+      <%= render partial: 'items/item', object: item, locals: {tile: tile} %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "New Item", new_grid_item_path(tile.grid) %>

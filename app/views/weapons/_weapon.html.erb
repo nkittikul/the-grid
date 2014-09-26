@@ -1,0 +1,6 @@
+<% if tile.unit %>
+  <%= link_to weapon.name, grid_unit_weapon_path(tile.grid, tile.unit, weapon_id: weapon.id), method: :post %>
+<% else %>
+  <%= weapon.name %> 
+<% end %>
+<%= link_to "Edit", edit_grid_weapon_path(tile.grid, weapon) %>

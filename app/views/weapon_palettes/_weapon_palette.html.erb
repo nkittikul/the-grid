@@ -1,0 +1,9 @@
+<ul>
+  <h3> Weapons </h3>
+  <% weapons.each do |weapon| %>
+    <li>
+      <%= render partial: 'weapons/weapon', object: weapon, locals: {tile: tile} %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "New Weapon", new_grid_weapon_path(tile.grid) %>

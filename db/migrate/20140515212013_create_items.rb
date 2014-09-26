@@ -7,8 +7,9 @@ class CreateItems < ActiveRecord::Migration
       t.integer :current_uses
       t.integer :max_uses
       t.integer :stat_increase
-      t.integer :unit_id
-      t.integer :grid_id
+      t.belongs_to :itemable, polymorphic: true
+      # t.integer :unit_id
+      # t.integer :grid_id
 
       t.timestamps
     end

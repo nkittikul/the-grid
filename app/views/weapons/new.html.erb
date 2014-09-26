@@ -1,0 +1,38 @@
+<h1>New Weapon</h1>
+<div>
+  <%= form_for [@grid, @weapon] do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Enter weapon name" %>
+    </div>
+    <div>
+      <%= f.label :type %>
+      <%= f.text_field :weapon_type, placeholder: "Enter weapon type" %>
+    </div>
+    <div>
+      <%= f.label :might %>
+      <%= f.number_field :might, placeholder: "Enter weapon might" %>
+    </div>
+    <div>
+      <%= f.label :weight %>
+      <%= f.number_field :weight, placeholder: "Enter weapon weight" %>
+    </div>
+    <div>
+      <%= f.label :hit_chance %>
+      <%= f.number_field :hit_chance, placeholder: "Enter weapon accuracy" %>
+    </div>
+    <div>
+      <%= f.label :max_uses %>
+      <%= f.number_field :max_uses, placeholder: "Enter weapon durability" %>
+    </div>
+    <div>
+      <%= f.label :rank %>
+      <%= f.text_field :rank, placeholder: "Enter weapon rank" %>
+    </div>
+    <div>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>

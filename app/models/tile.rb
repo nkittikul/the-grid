@@ -2,7 +2,7 @@ class Tile < ActiveRecord::Base
   before_create :set_defaults
   belongs_to :grid
   has_one :terrain, as: :terrainable
-  has_one :unit
+  has_one :unit, as: :unitable
 
   def set_defaults
     t = Terrain.first.dup

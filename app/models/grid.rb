@@ -2,9 +2,9 @@ class Grid < ActiveRecord::Base
   after_save :find_or_create_tiles
   has_many :tiles
   has_many :terrains, as: :terrainable
-  has_many :units
-  has_many :items
-  has_many :weapons
+  has_many :units, as: :unitable
+  has_many :items, as: :itemable
+  has_many :weapons, as: :weaponable
 
   def find_or_create_tiles
     self.width.times do |x|
