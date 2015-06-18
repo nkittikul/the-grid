@@ -16,3 +16,6 @@
 /tmp
 
 /public/uploads
+
+# Ignore secret token
+/config/initializers/secret_token.rb
